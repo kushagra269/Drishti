@@ -1,0 +1,31 @@
+models:
+  vehicle:
+    framework: ultralytics
+    architecture: yolo11m
+    weights: yolo11m.pt
+    device: auto
+    imgsz: 640
+    conf: 0.45
+    iou: 0.5
+    classes:
+      car: 2
+      motorcycle: 3
+      bus: 5
+      truck: 7
+    tracker: bytetrack.yaml
+
+  plate:
+    framework: ultralytics
+    architecture: yolo11m
+    weights: data/models/yolo11m_plate.pt
+    fallback_hub: null
+    device: auto
+    imgsz: 640
+    conf: 0.35
+    iou: 0.45
+
+  ocr:
+    framework: paddleocr
+    lang: en
+    use_angle_cls: true
+    device: auto

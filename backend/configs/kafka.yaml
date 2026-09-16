@@ -1,0 +1,51 @@
+kafka:
+  bootstrap_servers: localhost:9092
+  client_id: anpr-platform
+  acks: all
+  retries: 5
+  linger_ms: 10
+  compression_type: gzip
+  auto_offset_reset: latest
+  enable_auto_commit: true
+  consumer_timeout_ms: 250
+  local_fallback: true
+
+topics:
+  frames: anpr.frames.raw
+  vehicles: anpr.vehicles.tracked
+  plates: anpr.plates.ocr
+  records: anpr.records.final
+  dead_letter: anpr.deadletter
+
+partitions: 6
+replication_factor: 1
+
+acl:
+  - principal: anpr-core
+    role: super
+    topics: ["*"]
+    operations: [produce, consume, admin]
+  - principal: ingestion-service
+    role: producer
+    topics: [anpr.frames.raw]
+    operations: [produce]
+  - principal: perception-service
+    role: consumer-producer
+    topics: [anpr.frames.raw, anpr.vehicles.tracked]
+    operations: [consume, produce]
+  - principal: ocr-service
+    role: consumer-producer
+    topics: [anpr.vehicles.tracked, anpr.plates.ocr]
+    operations: [consume, produce]
+  - principal: assembler-service
+    role: consumer-producer
+    topics: [anpr.vehicles.tracked, anpr.plates.ocr, anpr.records.final]
+    operations: [consume, produce]
+  - principal: api-gateway
+    role: consumer
+    topics: [anpr.records.final]
+    operations: [consume]
+  - principal: frontend-read
+    role: consumer
+    topics: [anpr.records.final]
+    operations: [consume]

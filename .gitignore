@@ -1,0 +1,14 @@
+﻿node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+backend/.venv/
+backend/logs/
+backend/data/json/*.jsonl
+backend/data/json/live_*.jpg
+backend/data/crops/
+*.pt
+*.mp4
+DEMO_VIDEO_SCRIPT.md
+.env
+backend/.env

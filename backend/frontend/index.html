@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ANPR Operations Console</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Perimeter intelligence</p>
+        <h1>ANPR Operations Console</h1>
+      </div>
+      <div class="status-pills">
+        <span id="bus-pill">bus: —</span>
+        <span id="stat-pill">0 records</span>
+        <span id="clock-pill"></span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="feeds">
+        <h2>Live camera identification</h2>
+        <div id="feeds" class="feed-grid"></div>
+      </section>
+
+      <section class="map-card">
+        <h2>Site mapping</h2>
+        <div id="map"></div>
+      </section>
+
+      <section class="upload-card">
+        <h2>Upload number plate</h2>
+        <p class="upload-hint">Upload a plate image to read the registration number.</p>
+        <form id="plate-form" class="plate-form">
+          <input id="plate-file" type="file" accept="image/*" required />
+          <button type="submit">Read plate</button>
+        </form>
+        <div id="plate-result" class="plate-result" aria-live="polite">—</div>
+      </section>
+
+      <section class="table-card">
+        <div class="table-head">
+          <h2>Combined output (JSON store)</h2>
+          <a href="/api/records.json" target="_blank">open latest_snapshot.json</a>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Camera</th>
+                <th>Track</th>
+                <th>Plate</th>
+                <th>Type</th>
+                <th>Color</th>
+                <th>Speed</th>
+                <th>Crop</th>
+              </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

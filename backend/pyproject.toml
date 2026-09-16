@@ -1,0 +1,6 @@
+[project]
+name = "anpr-platform"
+version = "1.0.0"
+description = "Industrial ANPR platform with Kafka multi-camera ingestion"
+readme = "README.md"
+requires-python = ">=3.10"

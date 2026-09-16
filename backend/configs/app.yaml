@@ -1,0 +1,31 @@
+app:
+  name: ANPR Platform
+  version: 1.0.0
+  environment: development
+  api:
+    host: 0.0.0.0
+    port: 8080
+    cors_origins:
+      - "*"
+  logging:
+    level: INFO
+    json: false
+    dir: logs
+
+storage:
+  json_dir: data/json
+  vehicle_crop_dir: data/crops/vehicles
+  plate_crop_dir: data/crops/plates
+  records_file: data/json/anpr_records.jsonl
+  events_file: data/json/pipeline_events.jsonl
+
+processing:
+  target_fps: 12
+  skip_frames: 0
+  max_frame_width: 960
+  min_vehicle_confidence: 0.45
+  min_plate_confidence: 0.35
+  min_crop_size: [64, 64]
+  ocr_every_n_frames: 12
+  save_crops: true
+  jpeg_quality: 80

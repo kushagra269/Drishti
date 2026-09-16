@@ -1,0 +1,48 @@
+cameras:
+  - id: cam-gate-a
+    name: Gate A — Entry
+    enabled: true
+    source: data/videos/trafficvideo.mp4
+    source_type: file
+    kafka_key: cam-gate-a
+    location:
+      lat: 28.6139
+      lng: 77.2090
+      heading_deg: 12
+    calibration:
+      meters_per_pixel: 0.045
+      speed_smoothing: 0.35
+    roi: null
+    access_zone: perimeter-north
+
+  - id: cam-parking-b
+    name: Parking B — Aisle
+    enabled: true
+    source: data/videos/parking.mp4
+    source_type: file
+    kafka_key: cam-parking-b
+    location:
+      lat: 28.6146
+      lng: 77.2102
+      heading_deg: 95
+    calibration:
+      meters_per_pixel: 0.038
+      speed_smoothing: 0.4
+    roi: null
+    access_zone: parking-b
+
+  - id: cam-exit-c
+    name: Exit C — Outbound
+    enabled: false
+    source: rtsp://user:pass@10.0.0.21:554/stream
+    source_type: rtsp
+    kafka_key: cam-exit-c
+    location:
+      lat: 28.6132
+      lng: 77.2081
+      heading_deg: 188
+    calibration:
+      meters_per_pixel: 0.05
+      speed_smoothing: 0.3
+    roi: null
+    access_zone: perimeter-south
