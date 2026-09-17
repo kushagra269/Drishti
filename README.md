@@ -4,7 +4,7 @@
 
 DRISHTI is a city-wide AI-powered ANPR (Automatic Number Plate Recognition) command platform for smart-city operations rooms, traffic police, municipal control centres, and law-enforcement teams. It unifies live camera intelligence, vehicle trajectory reconstruction, corridor analytics, priority alerting, and watchlist enforcement into a single operator workspace.
 
-Operators see the city as a living system: camera nodes, traffic heat, plate reads, blacklisted vehicles, and route-level congestion � all in one place, ready for decision-making.
+Operators see the city as a living system: camera nodes, traffic heat, plate reads, blacklisted vehicles, and route-level congestion � all in one place, ready for decision making.
 
 ---
 
